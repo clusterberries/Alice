@@ -1,20 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class catCtrl : MonoBehaviour {
+public class animOnClick : MonoBehaviour {
 	private Animator anim;
+	public string animationName;
 
 	// Use this for initialization
 	void Start () {
 		anim = GetComponent<Animator>();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-
-	}
 
 	void OnMouseDown() {
-		anim.Play("cat");
+		anim.Play(animationName);
 	}
 }
