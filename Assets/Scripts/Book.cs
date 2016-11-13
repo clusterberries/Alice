@@ -64,10 +64,16 @@ public class Book : MonoBehaviour {
 		}
 
 		for (int i = 0; i < pages.GetLength(0); i++) {
-			if (i == page)
-				pages[i].SetActive (true);
-			else
-				pages[i].SetActive (false);
+			AudioSource[] audio = pages [i].GetComponents<AudioSource> ();
+			if (i == page) {
+				pages [i].SetActive (true);
+				if (audio.GetLength(0) != 0) 
+					audio[0].Play ();
+			} else {
+				pages [i].SetActive (false);
+				if (audio.GetLength(0) != 0) 
+					audio[0].Stop ();
+			}
 		}
 	}
 
