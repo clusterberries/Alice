@@ -34,7 +34,7 @@ public class game2Ctrl : MonoBehaviour {
 			GameObject newRing = Instantiate(ring, spawnPosition, spawnRotation) as GameObject;
 			newRing.transform.parent = gameObject.transform;
 
-			yield return new WaitForSeconds(2);
+			yield return new WaitForSeconds(1.5f);
 		}
 	}
 

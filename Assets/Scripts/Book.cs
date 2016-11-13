@@ -14,12 +14,16 @@ public class Book : MonoBehaviour {
 	private float effecttimer = 2;
 	private Blur blur;
 
+	private AudioSource forestAudio;
+
 	// Use this for initialization
 	void Start () {
         page = 0;
 		blur = Camera.main.GetComponent<Blur> ();
 		blur.iterations = 0;
 		wonTr = youWon.GetComponent<Transform> ();
+		AudioSource[] audios = GetComponents<AudioSource>();
+		forestAudio = audios[1];
 	}
 	
 	// Update is called once per frame
@@ -51,6 +55,12 @@ public class Book : MonoBehaviour {
 		if (showWon) {
 			showWon = false;
 			wonTr.localScale = new Vector3 (0.0f, 0.0f, 100.0f);
+		}
+
+		if (page == 1 || (page >= 4 && page <= 7)) {
+			forestAudio.Play ();
+		} else {
+			forestAudio.Stop ();
 		}
 
 		for (int i = 0; i < pages.GetLength(0); i++) {
