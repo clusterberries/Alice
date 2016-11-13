@@ -77,6 +77,12 @@ public class Book : MonoBehaviour {
 		 Application.Quit();
 	}
 
+	public void GoTo(int newPage) {
+		page = newPage;
+		effect = true;
+		blur.enabled = true;
+	}
+
 	public void ShowWon() {
 		showWon = true;
 	}
