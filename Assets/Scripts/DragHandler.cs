@@ -55,7 +55,6 @@ public class DragHandler : MonoBehaviour {
 			img.enabled = true;
 			gameObject.SetActive (false);
 			game.AddScore ();
-			//Analytics.CustomEvent("score");
 		}
 	}
 
@@ -70,5 +69,4 @@ public class DragHandler : MonoBehaviour {
 			collided = false;
 		}
 	}
-
 }
