@@ -37,6 +37,7 @@ public class Book : MonoBehaviour {
 			effecttimer -= Time.deltaTime;
 			
 			if (effecttimer < 0) {
+				playAudio ();
 				effect = false;
 				effecttimer = 2;
 
@@ -66,15 +67,19 @@ public class Book : MonoBehaviour {
 		}
 
 		for (int i = 0; i < pages.GetLength(0); i++) {
+			pages [i].SetActive (i == page);
+		}
+	}
+
+	private void playAudio() {
+		for (int i = 0; i < pages.GetLength(0); i++) {
 			AudioSource[] audio = pages [i].GetComponents<AudioSource> ();
-			if (i == page) {
-				pages [i].SetActive (true);
-				if (audio.GetLength(0) != 0) 
+			if (audio.GetLength (0) != 0) {
+				if (i == page) {
 					audio[0].Play ();
-			} else {
-				pages [i].SetActive (false);
-				if (audio.GetLength(0) != 0) 
+				} else {
 					audio[0].Stop ();
+				}
 			}
 		}
 	}
