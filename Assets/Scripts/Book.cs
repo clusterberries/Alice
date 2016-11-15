@@ -29,8 +29,10 @@ public class Book : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (effect) {
+			// Calculate value of current iteration
 			int iterations = (int) Mathf.Round( effecttimer * (-5.0f) + 10.0f ) * 2;
-
+			// If iterations less than 10 that means blur is getting more intense. 
+			// Otherwise it should decrease.
 			blur.iterations = iterations <= 10 ? iterations : 20 - iterations;
 			effecttimer -= Time.deltaTime;
 			

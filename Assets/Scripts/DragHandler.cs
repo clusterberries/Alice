@@ -2,7 +2,6 @@
 using UnityEngine.EventSystems;
 using System.Collections;
 using System;
-//using System.Collections.Generic;
 
 public class DragHandler : MonoBehaviour {
 	public GameObject collider;
